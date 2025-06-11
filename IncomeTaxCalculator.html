@@ -1,0 +1,44 @@
+<!--MUHAMMAD IRFAN NAJMI BIN ZULKARNAIN A24DW0879-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product Tax Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-light-grey">
+
+    <!-- Header Section -->
+    <header class="w3-container w3-blue w3-padding w3-center">
+        <h2 class="w3-text-white">Product Tax Calculator (6% Tax)</h2>
+    </header>
+
+    <!-- Calculator Section -->
+    <div class="w3-container w3-card w3-white w3-padding w3-margin w3-center w3-round">
+        <label class="w3-text-blue w3-large">Enter Product Price (RM):</label><br>
+        <input type="number" id="price" class="w3-input w3-border w3-margin-bottom w3-round" placeholder="exp= 100"><br>
+        <button onclick="calculateTax()" class="w3-button w3-green w3-round w3-margin-top">Calculate Tax</button>
+        <p id="output" class="w3-text-gray w3-large w3-margin-top"></p>
+    </div>
+
+    <!-- Back Button -->
+    <div class="w3-container w3-center w3-margin-top">
+        <a href="Main Frame.html" class="w3-button w3-gray w3-round w3-padding w3-large">← Back to Website</a>
+    </div>
+
+    <script>
+        function calculateTax() {
+            let price = parseFloat(document.getElementById("price").value);
+            if (isNaN(price) || price < 0) {
+                alert("Please enter a valid product price.");
+                return;
+            }
+            let tax = price * 0.06;
+            document.getElementById("output").textContent = 
+                "Tax (6%): RM " + tax.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

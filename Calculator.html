@@ -1,0 +1,72 @@
+<!--MUHAMMAD IRFAN NAJMI BIN ZULKARNAIN A24DW0879-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-container w3-light-grey">
+
+    <div class="w3-card-4 w3-padding w3-margin w3-white w3-center">
+        <h2 class="w3-text-blue">Simple Calculator</h2>
+
+        <label class="w3-text-gray">First Number:</label>
+        <input type="number" id="num1" class="w3-input w3-border w3-margin-bottom">
+
+        <label class="w3-text-gray">Second Number:</label>
+        <input type="number" id="num2" class="w3-input w3-border w3-margin-bottom">
+
+        <div class="w3-section">
+            <button onclick="calculate('add')" class="w3-button w3-green w3-margin">Add</button>
+            <button onclick="calculate('subtract')" class="w3-button w3-red w3-margin">Subtract</button>
+            <button onclick="calculate('multiply')" class="w3-button w3-yellow w3-margin">Multiply</button>
+            <button onclick="calculate('divide')" class="w3-button w3-blue w3-margin">Divide</button>
+            <button onclick="clearFields()" class="w3-button w3-gray w3-margin">Clear</button>
+        </div>
+
+        <label class="w3-text-gray">Result:</label>
+        <input type="text" id="result" class="w3-input w3-border w3-light-gray w3-margin-bottom" readonly>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            const n1 = parseFloat(document.getElementById('num1').value);
+            const n2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("Please enter both numbers.");
+                return;
+            }
+
+            switch(operation) {
+                case 'add': result = n1 + n2; break;
+                case 'subtract': result = n1 - n2; break;
+                case 'multiply': result = n1 * n2; break;
+                case 'divide':
+                    if (n2 === 0) {
+                        alert("Cannot divide by zero.");
+                        return;
+                    }
+                    result = n1 / n2;
+                    break;
+            }
+
+            document.getElementById('result').value = result;
+        }
+
+        function clearFields() {
+            document.getElementById('num1').value = "";
+            document.getElementById('num2').value = "";
+            document.getElementById('result').value = "";
+        }
+    </script>
+    
+<div class="w3-container w3-center w3-margin-top">
+    <a href="Main Frame.html" class="w3-button w3-gray w3-padding w3-large">← Back to Website</a>
+</div>
+    
+</body>
+</html>

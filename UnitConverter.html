@@ -1,0 +1,66 @@
+<!--MUHAMMAD IRFAN NAJMI BIN ZULKARNAIN A24DW0879-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .converter-box {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="w3-container w3-center converter-box w3-card-4 w3-padding-16">
+  <h2>Unit Converter</h2>
+
+  <input class="w3-input w3-margin-bottom" type="number" id="inputValue" placeholder="Enter value">
+
+  <div class="w3-bar w3-margin-bottom">
+    <button class="w3-bar-item w3-button w3-blue" onclick="convert('cmToM')">cm ➝ metre</button>
+    <button class="w3-bar-item w3-button w3-green" onclick="convert('mToCm')">metre ➝ cm</button>
+    <button class="w3-bar-item w3-button w3-orange" onclick="convert('mToKm')">metre ➝ km</button>
+    <button class="w3-bar-item w3-button w3-red" onclick="convert('kmToM')">km ➝ metre</button>
+  </div>
+
+  <p class="w3-large"><strong>Result:</strong> <span id="result">-</span></p>
+  <p><a href="Main Frame.html" class="w3-button w3-grey w3-margin-top">← Back to Website</a></p>
+</div>
+
+<script>
+  function convert(type) {
+    let input = parseFloat(document.getElementById("inputValue").value);
+    let result;
+
+    if (isNaN(input)) {
+      document.getElementById("result").innerText = "Please enter a valid number.";
+      return;
+    }
+
+    switch(type) {
+      case 'cmToM':
+        result = input / 100;
+        break;
+      case 'mToCm':
+        result = input * 100;
+        break;
+      case 'mToKm':
+        result = input / 1000;
+        break;
+      case 'kmToM':
+        result = input * 1000;
+        break;
+    }
+
+    document.getElementById("result").innerText = result.toFixed(2);
+  }
+</script>
+
+
+
+</body>
+</html>
